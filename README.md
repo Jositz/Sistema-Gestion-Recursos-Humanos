@@ -1,31 +1,29 @@
 # Sistema de Gestión de Recursos Humanos
 
-## Descripción general
+## 1. Descripción general
 
-Este proyecto tiene como objetivo desarrollar un sistema básico de gestión de recursos humanos en PSeInt, orientado a la administración de empleados, la revisión de vacaciones y la generación de reportes. El programa permite gestionar perfiles de personal, consultar información laboral, registrar solicitudes y validar aprobaciones según criterios internos.
+Este proyecto consiste en un sistema básico de gestión de recursos humanos desarrollado en PSeInt. Su finalidad es administrar la información de los empleados, registrar solicitudes de vacaciones, revisar su estado y generar reportes que permitan apoyar la toma de decisiones del área de RRHH.
 
-## Integrantes
+El programa está pensado como un prototipo funcional, con acceso diferenciado según el tipo de usuario, y usa estructuras de datos tipo arreglos para almacenar la información de cada trabajador.
 
-Grupo 4
+## 2. Objetivo del proyecto
 
-## Objetivo del sistema
+El sistema busca cubrir las siguientes funciones principales:
 
-El sistema está diseñado para apoyar las siguientes funciones:
+1. Registrar empleados.
+2. Modificar información personal o laboral.
+3. Eliminar empleados del sistema.
+4. Mostrar reportes generales.
+5. Revisar el historial de cada empleado.
+6. Gestionar solicitudes de vacaciones, aprobándolas o rechazándolas según criterios definidos.
 
-1. Agregar un empleado.
-2. Modificar la información de un empleado.
-3. Eliminar a un empleado.
-4. Generar reportes de personal.
-5. Revisar el historial de un empleado.
-6. Aprobar o rechazar solicitudes de vacaciones según el tiempo en la empresa, las horas trabajadas y el salario.
+## 3. Alcance funcional
 
-## Módulos principales
+### 3.1 Registro de empleados
 
-### 1. Registro de empleados
+El sistema permite almacenar la siguiente información por empleado:
 
-El sistema permite registrar la siguiente información de cada trabajador:
-
-- ID del empleado
+- ID
 - Nombre
 - Antigüedad
 - Salario
@@ -34,128 +32,145 @@ El sistema permite registrar la siguiente información de cada trabajador:
 - Estado de la solicitud
 - Historial de actividades
 
-### 2. Modificación de datos
+### 3.2 Modificación de información
 
-El administrador o el departamento de RRHH puede actualizar la información del empleado, como:
+El área de RRHH puede actualizar los datos de un empleado cuando sea necesario, como:
 
 - Nombre
 - Antigüedad
 - Salario
-- Horas trabajadas
-- Días de vacaciones
+- Horas de trabajo
+- Días de vacaciones disponibles
 
-### 3. Eliminación de empleados
+### 3.3 Eliminación de empleados
 
-Cuando un empleado ya no forma parte del sistema, se elimina físicamente del arreglo para mantener la información actualizada y ordenada.
+La eliminación se realiza mediante el ID del empleado, y la información restante del arreglo se reacomoda para mantener la estructura ordenada y consistente.
 
-### 4. Reportes
+### 3.4 Reportes
 
-Se muestran los datos principales de cada trabajador, como:
+El sistema permite visualizar la información principal de cada empleado, incluyendo:
 
 - ID
 - Nombre
 - Antigüedad
 - Salario
-- Horas laboradas
-- Días restantes de vacaciones
+- Horas trabajadas
+- Vacaciones disponibles
 - Estado actual
 
-### 5. Historial del empleado
+### 3.5 Historial
 
-Cada empleado cuenta con un historial de movimientos para registrar acciones del sistema, como:
+Cada empleado cuenta con un historial donde se registran acciones relevantes como:
 
-- Registro de usuario
+- Registro inicial
 - Modificación de datos
 - Solicitud de vacaciones
 - Aprobación o rechazo
 
-### 6. Solicitudes de vacaciones
+### 3.6 Solicitudes de vacaciones
 
-El empleado puede solicitar días de vacaciones, y el sistema cambia su estado a pendiente. Luego, RRHH revisa la solicitud y la valida con criterios definidos.
+El empleado puede solicitar días de vacaciones. La solicitud queda en estado pendiente hasta que RRHH la aprueba o rechaza de acuerdo con la política establecida.
 
-## Criterios para aprobación de vacaciones
+## 4. Criterios de aprobación de vacaciones
 
-La solicitud se aprueba o rechaza según las condiciones del empleado:
+La solicitud se aprueba o rechaza según criterios del empleado, con base en:
 
-- Tiempo de servicio en la empresa
-- Horas de trabajo
+- Tiempo de permanencia en la empresa
+- Horas trabajadas
 - Salario
 
-Esto permite que la decisión no dependa solo de la solicitud, sino también de la política interna del negocio.
+La validación se realiza con una regla general en la que la solicitud solo puede aprobarse si cumple con los requisitos mínimos definidos por la organización.
 
-## Estructura lógica del programa
+## 5. Estructura lógica del programa
 
-El algoritmo está organizado por bloques para facilitar su lectura y mantenimiento:
+El algoritmo está organizado en bloques para facilitar su lectura y mantenimiento:
 
-1. Variables globales
-2. Arreglos
-3. Carga inicial de empleados
-4. Funciones auxiliares
-5. Menú principal
-6. Menú de empleados
-7. Menú de RRHH
-8. Validación de vacaciones
-9. Reportes y historial
+1. Declaración de variables
+2. Dimensionamiento de arreglos
+3. Carga inicial de datos
+4. Validación de acceso por ID
+5. Menú de empleado
+6. Menú de RRHH
+7. Gestión de solicitudes de vacaciones
+8. Reportes e historial
+9. Ciclo principal del sistema
 
-## Menú principal
+## 6. Perfiles de acceso
 
-El sistema se inicia con la validación del ID del usuario. Dependiendo del ID, se accede a uno de los perfiles:
+El sistema identifica al usuario por su ID y según este accede a un menú diferente.
 
-- Empleado
-- Recursos humanos
-- Administrador
+### 6.1 Empleado
 
-## Menú del empleado
+Se consideran empleados los IDs:
 
-El empleado puede realizar las siguientes acciones:
+- 1111
+- 2222
+- 3333
 
-1. Solicitar vacaciones
-2. Ver estado de vacaciones
-3. Ver salario
-4. Ver información personal
-5. Ver historial
-6. Salir
+Estas cuentas permiten:
 
-## Menú de RRHH
+- Solicitar vacaciones
+- Ver estado de vacaciones
+- Ver salario
+- Consultar información personal
+- Revisar historial
+- Salir
 
-Recursos humanos puede realizar las siguientes acciones:
+### 6.2 Recursos Humanos
 
-1. Agregar empleado
-2. Modificar empleado
-3. Eliminar empleado
-4. Reportes
-5. Revisar historial
-6. Aprobación o rechazo de vacaciones
-7. Salir
+Se consideran usuarios de RRHH los IDs:
 
-## Reglas de funcionamiento
+- 4444
+- 5555
+- 6666
 
-- El sistema trabaja con arreglos para guardar la información de los empleados.
+Estas cuentas permiten:
+
+- Agregar empleado
+- Modificar datos
+- Eliminar empleado
+- Ver reportes
+- Revisar historial
+- Aprobar o rechazar vacaciones
+- Salir
+
+## 7. Menú principal
+
+Al iniciar el programa, se solicita ingresar el ID. Luego se evalúa:
+
+- Si el ID es válido y corresponde a un empleado, se muestra el menú del empleado.
+- Si corresponde a RRHH, se muestra el menú de recursos humanos.
+- Si el ID no existe, el sistema informa que el usuario no está autorizado.
+
+## 8. Reglas de funcionamiento
+
+- La información se almacena en arreglos.
 - Cada empleado tiene un identificador único.
-- Las vacaciones se registran como solicitudes pendientes y luego se aprueban o rechazan.
-- El historial conserva el registro de cambios para auditoría.
-- El programa se ejecuta en ciclo para permitir varias operaciones sin reiniciar la aplicación.
+- El sistema trabaja en un ciclo repetitivo para permitir múltiples operaciones sin reiniciar la aplicación.
+- Las solicitudes quedan pendientes hasta ser revisadas.
+- El historial registra las acciones más relevantes.
 
-## Ejecución
+## 9. Ejecución del proyecto
 
-Para ejecutar el proyecto:
+Para ejecutar el proyecto en PSeInt:
 
-1. Abrir el archivo PSeInt.
+1. Abrir PSeInt.
 2. Cargar el archivo principal del proyecto.
 3. Ejecutar el algoritmo.
-4. Ingresar el ID correspondiente para acceder al menú adecuado.
+4. Ingresar el ID de acceso.
+5. Navegar por el menú correspondiente.
 
-## Observaciones
+## 10. Observaciones
 
-Este proyecto sirve como base para un sistema de recursos humanos académico y puede ampliarse con:
+Este proyecto funciona como una base para un sistema académico de gestión de personal. Puede ampliarse con funcionalidades como:
 
-- Registro de departamento
 - Control de asistencia
+- Registro por departamentos
 - Liquidación de salarios
-- Carga de múltiples empleados desde archivo
 - Login con usuarios y contraseñas
+- Carga de información desde archivos externos
 
-## Conclusión
+## 11. Conclusión
 
-Este sistema permite simular una gestión básica de recursos humanos con enfoque en empleados, vacaciones, historial y reportes. La lógica se organiza de forma modular para facilitar la comprensión del proyecto y su futura ampliación.
+El sistema desarrollado permite simular una gestión básica de recursos humanos con enfoque en personal, vacaciones, reportes e historial. Su estructura modular facilita la comprensión del programa y ofrece una base sólida para futuras ampliaciones.
 

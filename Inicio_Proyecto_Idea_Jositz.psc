@@ -1,5 +1,8 @@
 Algoritmo Inicio_Proyecto
 
+    // ===================================================
+    // BLOQUE 1: DEFINICION DE VARIABLES Y ARREGLOS
+    // ===================================================
     Definir cantidad, i, j, opcion, id, pos, idBuscado Como Entero
     Definir encontrado Como Logico
     Definir nombres, estado, historial Como Caracter
@@ -10,6 +13,9 @@ Algoritmo Inicio_Proyecto
     Dimension ids[100], antiguedad[100], diasVacaciones[100], diasSolicitados[100]
     Dimension horas[100], salario[100]
 
+    // ===================================================
+    // BLOQUE 2: CARGA INICIAL DE EMPLEADOS
+    // ===================================================
     cantidad <- 6
 
     ids[1] <- 1111
@@ -60,6 +66,9 @@ Algoritmo Inicio_Proyecto
         historial[i] <- "Sin historial"
     FinPara
 
+    // ===================================================
+    // BLOQUE 3: MENU PRINCIPAL DEL SISTEMA
+    // ===================================================
     Repetir
 
         Limpiar Pantalla
@@ -69,6 +78,7 @@ Algoritmo Inicio_Proyecto
         Escribir "Ingrese su ID:"
         Leer id
 
+        // Busca si el ID ingresado existe dentro del arreglo de empleados
         encontrado <- Falso
         pos <- -1
 
@@ -81,6 +91,7 @@ Algoritmo Inicio_Proyecto
 
         Si encontrado Entonces
 
+            // Si el ID pertenece a un empleado regular, se abre su menú
             Si id = 1111 O id = 2222 O id = 3333 Entonces
 
                 Repetir
@@ -101,6 +112,7 @@ Algoritmo Inicio_Proyecto
                     Segun opcion Hacer
 
                         1:
+                            // Solicitud de vacaciones por parte del empleado
                             Escribir "Dias disponibles: ", diasVacaciones[pos]
                             Escribir "Cantidad de dias a solicitar:"
                             Leer diasSolicitados[pos]
@@ -114,14 +126,17 @@ Algoritmo Inicio_Proyecto
                             FinSi
 
                         2:
+                            // Consulta del estado actual de vacaciones
                             Escribir "Estado: ", estado[pos]
                             Escribir "Dias disponibles: ", diasVacaciones[pos]
 
                         3:
+                            // Consulta de salario y horas trabajadas
                             Escribir "Salario: L. ", salario[pos]
                             Escribir "Horas trabajadas: ", horas[pos]
 
                         4:
+                            // Información personal del empleado
                             Escribir "ID: ", ids[pos]
                             Escribir "Nombre: ", nombres[pos]
                             Escribir "Antiguedad: ", antiguedad[pos], " años"
@@ -129,10 +144,12 @@ Algoritmo Inicio_Proyecto
                             Escribir "Horas: ", horas[pos]
 
                         5:
+                            // Historial del empleado
                             Escribir "Historial: "
                             Escribir historial[pos]
 
                         6:
+                            // Cierre de sesión
                             Escribir "Cerrando sesion..."
 
                         De Otro Modo:
@@ -146,6 +163,7 @@ Algoritmo Inicio_Proyecto
 
             SiNo
 
+                // Si el ID pertenece al personal de RRHH, se abre el panel administrativo
                 Si id = 4444 O id = 5555 O id = 6666 Entonces
 
                     Repetir
@@ -166,6 +184,7 @@ Algoritmo Inicio_Proyecto
                         Segun opcion Hacer
 
                             1:
+                                // Agregar un nuevo empleado al sistema
                                 cantidad <- cantidad + 1
                                 Escribir "Ingrese ID:"
                                 Leer ids[cantidad]
@@ -185,6 +204,7 @@ Algoritmo Inicio_Proyecto
                                 Escribir "Empleado agregado."
 
                             2:
+                                // Modificar la información de un empleado existente
                                 Escribir "Ingrese ID del empleado a modificar:"
                                 Leer idBuscado
                                 pos <- -1
@@ -212,6 +232,7 @@ Algoritmo Inicio_Proyecto
                                 FinSi
 
                             3:
+                                // Eliminar un empleado del sistema
                                 Escribir "Ingrese ID a eliminar:"
                                 Leer idBuscado
                                 pos <- -1
@@ -240,6 +261,7 @@ Algoritmo Inicio_Proyecto
                                 FinSi
 
                             4:
+                                // Reportes generales del personal
                                 Escribir "========== REPORTES =========="
                                 Para i <- 1 Hasta cantidad Hacer
                                     Escribir "----------------------------------------"
@@ -253,6 +275,7 @@ Algoritmo Inicio_Proyecto
                                 FinPara
 
                             5:
+                                // Consulta del historial de un empleado particular
                                 Escribir "Ingrese ID del empleado:"
                                 Leer idBuscado
                                 pos <- -1
@@ -270,6 +293,7 @@ Algoritmo Inicio_Proyecto
                                 FinSi
 
                             6:
+                                // Validacion de aprobacion o rechazo de vacaciones
                                 Escribir "Ingrese ID del empleado:"
                                 Leer idBuscado
                                 pos <- -1
@@ -299,6 +323,7 @@ Algoritmo Inicio_Proyecto
                                 FinSi
 
                             7:
+                                // Salir del panel administrativo
                                 Escribir "Cerrando sesion..."
 
                             De Otro Modo:
