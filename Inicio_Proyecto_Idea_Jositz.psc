@@ -1,46 +1,14 @@
-// ===================================================
-// BLOQUE 1: VARIABLES GLOBALES
-// ===================================================
-
-Definir cantidad, i, j, opcion, id, pos, idBuscado Como Entero
-Definir encontrado Como Logico
-
-// ===================================================
-// BLOQUE 2: ARREGLOS
-// ===================================================
-
-Dimension ids[100]
-Dimension nombres[100]
-Dimension antiguedad[100]
-Dimension diasVacaciones[100]
-Dimension diasSolicitados[100]
-Dimension horas[100]
-Dimension salario[100]
-Dimension estado[100]
-Dimension historial[100]
-
-Funcion BuscarEmpleado(idBuscado, cantidad) Como Entero
-    Para i <- 1 Hasta cantidad Hacer
-        Si ids[i] = idBuscado Entonces
-            Retornar i
-        FinSi
-    FinPara
-    Retornar -1
-FinFuncion
-
-Funcion ValidarVacaciones(antiguedadEmpleado, horasEmpleado, salarioEmpleado) Como Logico
-    Si antiguedadEmpleado >= 1 Y horasEmpleado >= 35 Y salarioEmpleado >= 8000 Entonces
-        Retornar Verdadero
-    SiNo
-        Retornar Falso
-    FinSi
-FinFuncion
-
 Algoritmo Inicio_Proyecto
 
-    // ===================================================
-    // BLOQUE 3: CARGA INICIAL DEL SISTEMA
-    // ===================================================
+    Definir cantidad, i, j, opcion, id, pos, idBuscado Como Entero
+    Definir encontrado Como Logico
+    Definir nombres, estado, historial Como Caracter
+    Definir ids, antiguedad, diasVacaciones, diasSolicitados Como Entero
+    Definir horas, salario Como Real
+
+    Dimension nombres[100], estado[100], historial[100]
+    Dimension ids[100], antiguedad[100], diasVacaciones[100], diasSolicitados[100]
+    Dimension horas[100], salario[100]
 
     cantidad <- 6
 
@@ -92,10 +60,6 @@ Algoritmo Inicio_Proyecto
         historial[i] <- "Sin historial"
     FinPara
 
-    // ===================================================
-    // BLOQUE 5: MENU PRINCIPAL
-    // ===================================================
-
     Repetir
 
         Limpiar Pantalla
@@ -105,13 +69,17 @@ Algoritmo Inicio_Proyecto
         Escribir "Ingrese su ID:"
         Leer id
 
-        pos <- BuscarEmpleado(id, cantidad)
+        encontrado <- Falso
+        pos <- -1
 
-        Si pos <> -1 Entonces
+        Para i <- 1 Hasta cantidad Hacer
+            Si ids[i] = id Entonces
+                encontrado <- Verdadero
+                pos <- i
+            FinSi
+        FinPara
 
-            // ===================================================
-            // BLOQUE 6: MENU PARA EMPLEADOS
-            // ===================================================
+        Si encontrado Entonces
 
             Si id = 1111 O id = 2222 O id = 3333 Entonces
 
@@ -123,9 +91,9 @@ Algoritmo Inicio_Proyecto
                     Escribir "========================================"
                     Escribir "Bienvenido: ", nombres[pos]
                     Escribir "1. Solicitar vacaciones"
-                    Escribir "2. Ver estado de vacaciones"
+                    Escribir "2. Ver vacaciones"
                     Escribir "3. Ver salario"
-                    Escribir "4. Ver informacion personal"
+                    Escribir "4. Ver informacion"
                     Escribir "5. Ver historial"
                     Escribir "6. Salir"
                     Leer opcion
@@ -134,12 +102,12 @@ Algoritmo Inicio_Proyecto
 
                         1:
                             Escribir "Dias disponibles: ", diasVacaciones[pos]
-                            Escribir "Ingrese cantidad de dias a solicitar:"
+                            Escribir "Cantidad de dias a solicitar:"
                             Leer diasSolicitados[pos]
 
                             Si diasSolicitados[pos] > 0 Y diasSolicitados[pos] <= diasVacaciones[pos] Entonces
                                 estado[pos] <- "Pendiente"
-                                historial[pos] <- historial[pos] + "; Solicitud de vacaciones: " + ConvertirATexto(diasSolicitados[pos]) + " dias"
+                                historial[pos] <- "Solicitud de vacaciones"
                                 Escribir "Solicitud enviada a Recursos Humanos."
                             SiNo
                                 Escribir "Cantidad de dias no valida."
@@ -158,7 +126,7 @@ Algoritmo Inicio_Proyecto
                             Escribir "Nombre: ", nombres[pos]
                             Escribir "Antiguedad: ", antiguedad[pos], " años"
                             Escribir "Salario: L. ", salario[pos]
-                            Escribir "Horas trabajadas: ", horas[pos]
+                            Escribir "Horas: ", horas[pos]
 
                         5:
                             Escribir "Historial: "
@@ -176,10 +144,6 @@ Algoritmo Inicio_Proyecto
 
                 Hasta Que opcion = 6
 
-            // ===================================================
-            // BLOQUE 7: MENU PARA RECURSOS HUMANOS
-            // ===================================================
-
             SiNo
 
                 Si id = 4444 O id = 5555 O id = 6666 Entonces
@@ -195,7 +159,7 @@ Algoritmo Inicio_Proyecto
                         Escribir "3. Eliminar empleado"
                         Escribir "4. Reportes"
                         Escribir "5. Revisar historial"
-                        Escribir "6. Aprobacion o rechazo de vacaciones"
+                        Escribir "6. Aprobar o rechazar vacaciones"
                         Escribir "7. Salir"
                         Leer opcion
 
@@ -203,11 +167,11 @@ Algoritmo Inicio_Proyecto
 
                             1:
                                 cantidad <- cantidad + 1
-                                Escribir "Ingrese ID del empleado:"
+                                Escribir "Ingrese ID:"
                                 Leer ids[cantidad]
                                 Escribir "Ingrese nombre:"
                                 Leer nombres[cantidad]
-                                Escribir "Ingrese antiguedad en años:"
+                                Escribir "Ingrese antiguedad:"
                                 Leer antiguedad[cantidad]
                                 Escribir "Ingrese salario:"
                                 Leer salario[cantidad]
@@ -218,12 +182,17 @@ Algoritmo Inicio_Proyecto
                                 estado[cantidad] <- "Sin solicitud"
                                 diasSolicitados[cantidad] <- 0
                                 historial[cantidad] <- "Empleado registrado"
-                                Escribir "Empleado agregado correctamente."
+                                Escribir "Empleado agregado."
 
                             2:
                                 Escribir "Ingrese ID del empleado a modificar:"
                                 Leer idBuscado
-                                pos <- BuscarEmpleado(idBuscado, cantidad)
+                                pos <- -1
+                                Para i <- 1 Hasta cantidad Hacer
+                                    Si ids[i] = idBuscado Entonces
+                                        pos <- i
+                                    FinSi
+                                FinPara
 
                                 Si pos <> -1 Entonces
                                     Escribir "Nuevo nombre:"
@@ -232,20 +201,25 @@ Algoritmo Inicio_Proyecto
                                     Leer antiguedad[pos]
                                     Escribir "Nuevo salario:"
                                     Leer salario[pos]
-                                    Escribir "Nuevas horas trabajadas:"
+                                    Escribir "Nuevas horas:"
                                     Leer horas[pos]
                                     Escribir "Nuevo total de vacaciones:"
                                     Leer diasVacaciones[pos]
-                                    historial[pos] <- historial[pos] + "; Datos modificados"
-                                    Escribir "Empleado actualizado."
+                                    historial[pos] <- "Datos modificados"
+                                    Escribir "Empleado modificado."
                                 SiNo
                                     Escribir "Empleado no encontrado."
                                 FinSi
 
                             3:
-                                Escribir "Ingrese ID del empleado a eliminar:"
+                                Escribir "Ingrese ID a eliminar:"
                                 Leer idBuscado
-                                pos <- BuscarEmpleado(idBuscado, cantidad)
+                                pos <- -1
+                                Para i <- 1 Hasta cantidad Hacer
+                                    Si ids[i] = idBuscado Entonces
+                                        pos <- i
+                                    FinSi
+                                FinPara
 
                                 Si pos <> -1 Entonces
                                     Para j <- pos Hasta cantidad - 1 Hacer
@@ -260,20 +234,20 @@ Algoritmo Inicio_Proyecto
                                         historial[j] <- historial[j + 1]
                                     FinPara
                                     cantidad <- cantidad - 1
-                                    Escribir "Empleado eliminado correctamente."
+                                    Escribir "Empleado eliminado."
                                 SiNo
                                     Escribir "Empleado no encontrado."
                                 FinSi
 
                             4:
-                                Escribir "================ REPORTES ================"
+                                Escribir "========== REPORTES =========="
                                 Para i <- 1 Hasta cantidad Hacer
                                     Escribir "----------------------------------------"
                                     Escribir "ID: ", ids[i]
                                     Escribir "Nombre: ", nombres[i]
                                     Escribir "Antiguedad: ", antiguedad[i], " años"
-                                    Escribir "Horas: ", horas[i]
                                     Escribir "Salario: L. ", salario[i]
+                                    Escribir "Horas: ", horas[i]
                                     Escribir "Vacaciones disponibles: ", diasVacaciones[i]
                                     Escribir "Estado: ", estado[i]
                                 FinPara
@@ -281,7 +255,12 @@ Algoritmo Inicio_Proyecto
                             5:
                                 Escribir "Ingrese ID del empleado:"
                                 Leer idBuscado
-                                pos <- BuscarEmpleado(idBuscado, cantidad)
+                                pos <- -1
+                                Para i <- 1 Hasta cantidad Hacer
+                                    Si ids[i] = idBuscado Entonces
+                                        pos <- i
+                                    FinSi
+                                FinPara
 
                                 Si pos <> -1 Entonces
                                     Escribir "Historial de ", nombres[pos], ":"
@@ -293,19 +272,24 @@ Algoritmo Inicio_Proyecto
                             6:
                                 Escribir "Ingrese ID del empleado:"
                                 Leer idBuscado
-                                pos <- BuscarEmpleado(idBuscado, cantidad)
+                                pos <- -1
+                                Para i <- 1 Hasta cantidad Hacer
+                                    Si ids[i] = idBuscado Entonces
+                                        pos <- i
+                                    FinSi
+                                FinPara
 
                                 Si pos <> -1 Entonces
                                     Si estado[pos] = "Pendiente" Entonces
-                                        Si ValidarVacaciones(antiguedad[pos], horas[pos], salario[pos]) Entonces
+                                        Si antiguedad[pos] >= 1 Y horas[pos] >= 35 Y salario[pos] >= 8000 Entonces
                                             estado[pos] <- "Aprobada"
                                             diasVacaciones[pos] <- diasVacaciones[pos] - diasSolicitados[pos]
-                                            historial[pos] <- historial[pos] + "; Vacaciones aprobadas"
+                                            historial[pos] <- "Vacaciones aprobadas"
                                             Escribir "Vacaciones aprobadas."
                                         SiNo
                                             estado[pos] <- "Rechazada"
-                                            historial[pos] <- historial[pos] + "; Vacaciones rechazadas por politica"
-                                            Escribir "Vacaciones rechazadas por la politica de RRHH."
+                                            historial[pos] <- "Vacaciones rechazadas por politica"
+                                            Escribir "Vacaciones rechazadas por politica de RRHH."
                                         FinSi
                                     SiNo
                                         Escribir "El empleado no tiene una solicitud pendiente."
