@@ -233,7 +233,7 @@ Algoritmo Inicio_Proyecto
 FinAlgoritmo
 ```
 
-> 📊 Para ver los diagramas de flujo completos en Mermaid, consulta:
+>  Para ver los diagramas de flujo completos en Mermaid, consulta:
 > - [Diagrama_Flujo_Sistema.md](Diagrama_Flujo_Sistema.md) — Flujo general del sistema
 > - [Diagrama_Aprobacion_Vacaciones.md](Diagrama_Aprobacion_Vacaciones.md) — Flujo de aprobación de vacaciones
 > - [Diagrama_Estructura_Arreglos.md](Diagrama_Estructura_Arreglos.md) — Estructura de arreglos y acceso a datos
