@@ -6,9 +6,9 @@
 
 ```mermaid
 flowchart TD
-    START([🟢 INICIO]) --> INIT[Declarar variables y arreglos]
+    START([ INICIO]) --> INIT[Declarar variables y arreglos]
     INIT --> LOAD[Cargar 6 empleados iniciales]
-    LOAD --> LOOP([🔄 CICLO PRINCIPAL])
+    LOAD --> LOOP([ CICLO PRINCIPAL])
 
     LOOP --> CLEAR[Limpiar pantalla]
     CLEAR --> LOGIN[Mostrar pantalla de login]
@@ -17,7 +17,7 @@ flowchart TD
     READ_ID --> SEARCH[Buscar ID en arreglo ids]
     SEARCH --> FOUND{¿ID encontrado?}
 
-    FOUND -- No --> ERR1[/❌ ID incorrecto/]
+    FOUND -- No --> ERR1[/ ID incorrecto/]
     ERR1 --> WAIT1[Esperar tecla]
     WAIT1 --> LOOP
 
@@ -25,11 +25,11 @@ flowchart TD
 
     TYPE -- "IDs 1111, 2222, 3333\n(Empleado)" --> EMP_MENU
     TYPE -- "IDs 4444, 5555, 6666\n(RRHH)" --> RRHH_MENU
-    TYPE -- "Otro ID\n(no autorizado)" --> ERR2[/❌ Usuario no autorizado/]
+    TYPE -- "Otro ID\n(no autorizado)" --> ERR2[/ Usuario no autorizado/]
     ERR2 --> WAIT2[Esperar tecla]
     WAIT2 --> LOOP
 
-    EMP_MENU([👨‍💼 MENÚ EMPLEADO]) --> EMP_OPT{Opción}
+    EMP_MENU([ MENÚ EMPLEADO]) --> EMP_OPT{Opción}
 
     EMP_OPT -- "1. Solicitar vacaciones" --> E1[Solicitar vacaciones]
     EMP_OPT -- "2. Ver vacaciones" --> E2[Ver estado de vacaciones]
@@ -49,7 +49,7 @@ flowchart TD
     E_LOOP -- No --> EMP_MENU
     E_LOOP -- Sí --> LOOP
 
-    RRHH_MENU([🏢 MENÚ RRHH]) --> RRHH_OPT{Opción}
+    RRHH_MENU([ MENÚ RRHH]) --> RRHH_OPT{Opción}
 
     RRHH_OPT -- "1. Agregar empleado" --> R1[Agregar empleado]
     RRHH_OPT -- "2. Modificar empleado" --> R2[Modificar empleado]
@@ -89,7 +89,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    EM([👨‍💼 MENÚ EMPLEADO\nBienvenido: nombre]) --> OPT{Selecciona opción}
+    EM([ MENÚ EMPLEADO\nBienvenido: nombre]) --> OPT{Selecciona opción}
 
     OPT -- 1 --> V1[Mostrar días disponibles]
     V1 --> V1B[Leer cantidad a solicitar]
@@ -123,7 +123,7 @@ flowchart TD
 
     DONE[Esperar tecla] --> CHK{¿Opción = 6?}
     CHK -- No --> EM
-    CHK -- Sí --> EXIT([🔄 Regresar al login])
+    CHK -- Sí --> EXIT([ Regresar al login])
 
     style EM fill:#2196F3,color:#fff
     style EXIT fill:#9E9E9E,color:#fff
@@ -139,7 +139,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    RM([🏢 MENÚ RECURSOS HUMANOS]) --> OPT{Selecciona opción}
+    RM([ MENÚ RECURSOS HUMANOS]) --> OPT{Selecciona opción}
 
     OPT -- 1 --> A1[Leer datos del nuevo empleado]
     A1 --> A2[cantidad = cantidad + 1]
@@ -203,7 +203,7 @@ flowchart TD
 
     DONE[Esperar tecla] --> CHK{¿Opción = 7?}
     CHK -- No --> RM
-    CHK -- Sí --> EXIT([🔄 Regresar al login])
+    CHK -- Sí --> EXIT([ Regresar al login])
 
     style RM fill:#9C27B0,color:#fff
     style EXIT fill:#9E9E9E,color:#fff
@@ -225,9 +225,9 @@ flowchart TD
 ```mermaid
 sequenceDiagram
     autonumber
-    participant U as 👤 Usuario
-    participant S as 💻 Sistema
-    participant DB as 📋 Arreglos
+    participant U as  Usuario
+    participant S as  Sistema
+    participant DB as  Arreglos
 
     Note over S, DB: INICIALIZACIÓN
     S->>DB: Declarar variables y arreglos [100]
@@ -241,7 +241,7 @@ sequenceDiagram
         DB-->>S: pos (índice o -1)
 
         alt ID no encontrado
-            S->>U: ❌ ID incorrecto
+            S->>U:  ID incorrecto
         else ID válido
             alt IDs 1111, 2222, 3333 (Empleado)
                 loop Menú Empleado (hasta opción 6)
@@ -253,9 +253,9 @@ sequenceDiagram
                         alt Válido (> 0 y ≤ disponibles)
                             S->>DB: estado[pos] = "Pendiente"
                             S->>DB: historial[pos] = "Solicitud de vacaciones"
-                            S->>U: ✅ Solicitud enviada a RRHH
+                            S->>U:  Solicitud enviada a RRHH
                         else Inválido
-                            S->>U: ❌ Cantidad no válida
+                            S->>U:  Cantidad no válida
                         end
                     else Opción 2: Ver vacaciones
                         S->>DB: Leer estado y días
@@ -285,16 +285,16 @@ sequenceDiagram
                         U->>S: Datos del nuevo empleado
                         S->>DB: cantidad += 1
                         S->>DB: Guardar en posición [cantidad]
-                        S->>U: ✅ Empleado agregado
+                        S->>U:  Empleado agregado
                     else Opción 2: Modificar empleado
                         U->>S: ID a modificar
                         S->>DB: Buscar ID
                         alt Encontrado
                             U->>S: Nuevos datos
                             S->>DB: Actualizar campos
-                            S->>U: ✅ Empleado modificado
+                            S->>U:  Empleado modificado
                         else No encontrado
-                            S->>U: ❌ Empleado no encontrado
+                            S->>U:  Empleado no encontrado
                         end
                     else Opción 3: Eliminar empleado
                         U->>S: ID a eliminar
@@ -302,9 +302,9 @@ sequenceDiagram
                         alt Encontrado
                             S->>DB: Desplazar arreglo
                             S->>DB: cantidad -= 1
-                            S->>U: ✅ Empleado eliminado
+                            S->>U:  Empleado eliminado
                         else No encontrado
-                            S->>U: ❌ Empleado no encontrado
+                            S->>U:  Empleado no encontrado
                         end
                     else Opción 4: Reportes
                         S->>DB: Recorrer todo el arreglo
@@ -324,11 +324,11 @@ sequenceDiagram
                                 S->>DB: estado = "Aprobada"
                                 S->>DB: diasVacaciones -= diasSolicitados
                                 S->>DB: historial = "Vacaciones aprobadas"
-                                S->>U: ✅ Vacaciones aprobadas
+                                S->>U:  Vacaciones aprobadas
                             else No cumple
                                 S->>DB: estado = "Rechazada"
                                 S->>DB: historial = "Rechazadas por politica"
-                                S->>U: ❌ Vacaciones rechazadas
+                                S->>U:  Vacaciones rechazadas
                             end
                         else Sin solicitud o no encontrado
                             S->>U: Mensaje informativo
@@ -339,7 +339,7 @@ sequenceDiagram
                 end
 
             else Otro ID
-                S->>U: ❌ Usuario no autorizado
+                S->>U:  Usuario no autorizado
             end
         end
     end
@@ -351,7 +351,7 @@ sequenceDiagram
 
 ```mermaid
 flowchart LR
-    subgraph ARRAYS ["📋 ARREGLOS DEL SISTEMA"]
+    subgraph ARRAYS [" ARREGLOS DEL SISTEMA"]
         direction TB
         A1["ids[1..100]"]
         A2["nombres[1..100]"]
@@ -364,7 +364,7 @@ flowchart LR
         A9["historial[1..100]"]
     end
 
-    subgraph INDICE ["🔑 INDICE = pos"]
+    subgraph INDICE [" INDICE = pos"]
         POS["Cada posición [pos]\nrepresenta a un empleado"]
     end
 
@@ -391,13 +391,13 @@ flowchart TD
     START([Usuario ingresa ID]) --> SEARCH[Buscar en arreglo ids]
     SEARCH --> CHECK{¿Existe?}
 
-    CHECK -- No --> ERR[/❌ ID incorrecto/]
+    CHECK -- No --> ERR[/ ID incorrecto/]
 
     CHECK -- Sí --> RANGE{¿Rango del ID?}
 
-    RANGE -- "1111 - 3333" --> EMP[👨‍💼 Menú Empleado\n6 opciones]
-    RANGE -- "4444 - 6666" --> RRHH[🏢 Menú RRHH\n7 opciones]
-    RANGE -- "Otro" --> UNAUTH[/❌ No autorizado/]
+    RANGE -- "1111 - 3333" --> EMP[ Menú Empleado\n6 opciones]
+    RANGE -- "4444 - 6666" --> RRHH[ Menú RRHH\n7 opciones]
+    RANGE -- "Otro" --> UNAUTH[/ No autorizado/]
 
     EMP --> E_OPTS
     subgraph E_OPTS ["OPCIONES EMPLEADO"]
@@ -420,7 +420,7 @@ flowchart TD
         RO7[7. Salir]
     end
 
-    EO6 --> BACK([🔄 Regresar al login])
+    EO6 --> BACK([ Regresar al login])
     RO7 --> BACK
     ERR --> BACK
     UNAUTH --> BACK
@@ -439,9 +439,9 @@ flowchart TD
 
 | Color | Significado |
 |---|---|
-| 🟢 Verde | Inicio / Éxito / Aprobado |
-| 🔵 Azul | Menú de Empleado |
-| 🟣 Morado | Menú de RRHH |
-| 🟠 Naranja | Ciclo principal / Advertencia |
-| ⚪ Gris | Salir / Cerrar sesión |
-| 🔴 Rojo | Error / Rechazado / No encontrado |
+|  Verde | Inicio / Éxito / Aprobado |
+|  Azul | Menú de Empleado |
+|  Morado | Menú de RRHH |
+|  Naranja | Ciclo principal / Advertencia |
+|  Gris | Salir / Cerrar sesión |
+|  Rojo | Error / Rechazado / No encontrado |
