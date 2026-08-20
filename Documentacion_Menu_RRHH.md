@@ -323,7 +323,7 @@ Busca al empleado por ID y evalúa su solicitud de vacaciones según la polític
 | Horas trabajadas | ≥ 35 horas/semana |
 | Salario | ≥ L. 8,000 |
 
-> 📊 Para ver el diagrama de flujo completo en Mermaid, consulta [Diagrama_Aprobacion_Vacaciones.md](Diagrama_Aprobacion_Vacaciones.md).
+>  Para ver el diagrama de flujo completo en Mermaid, consulta [Diagrama_Aprobacion_Vacaciones.md](Diagrama_Aprobacion_Vacaciones.md).
 
 #### Ejemplo 1 — Solicitud aprobada
 
@@ -381,9 +381,9 @@ Vacaciones rechazadas por politica de RRHH.
 
 | Criterio | Valor del empleado | Requisito | ¿Cumple? |
 |---|---|---|---|
-| Antigüedad | 1 año | ≥ 1 | ✅ |
-| Horas | 35 | ≥ 35 | ✅ |
-| Salario | 9000 | ≥ 8000 | ✅ |
+| Antigüedad | 1 año | ≥ 1 |  |
+| Horas | 35 | ≥ 35 |  |
+| Salario | 9000 | ≥ 8000 |  |
 
 > **Nota:** En este caso sí cumple. El rechazo ocurriría si, por ejemplo, el salario fuera 7000 o las horas 30.
 
@@ -475,5 +475,5 @@ MENU RECURSOS HUMANOS
         → Cierra sesión → Regresa al login
 ```
 
-> 📊 Para ver el diagrama de flujo general del sistema en Mermaid, consulta [Diagrama_Flujo_Sistema.md](Diagrama_Flujo_Sistema.md).
-> 📊 Para ver la estructura de arreglos, consulta [Diagrama_Estructura_Arreglos.md](Diagrama_Estructura_Arreglos.md).
+>  Para ver el diagrama de flujo general del sistema en Mermaid, consulta [Diagrama_Flujo_Sistema.md](Diagrama_Flujo_Sistema.md).
+>  Para ver la estructura de arreglos, consulta [Diagrama_Estructura_Arreglos.md](Diagrama_Estructura_Arreglos.md).
