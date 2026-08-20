@@ -108,7 +108,7 @@ sequenceDiagram
     S->>E: Días disponibles: 20
 
     E->>S: Cantidad a solicitar: 5
-    S->>S: Valida: 5 > 0 y 5 ≤ 20 ✅
+    S->>S: Valida: 5 > 0 y 5 ≤ 20 
     S->>S: estado = "Pendiente"
     S->>S: historial = "Solicitud de vacaciones"
     S->>E: Solicitud enviada a RRHH
@@ -119,9 +119,9 @@ sequenceDiagram
     S->>S: Busca empleado → pos = 1
 
     alt Estado = Pendiente y cumple política
-        S->>S: antigüedad(3) ≥ 1 ✅
-        S->>S: horas(40) ≥ 35 ✅
-        S->>S: salario(12000) ≥ 8000 ✅
+        S->>S: antigüedad(3) ≥ 1 
+        S->>S: horas(40) ≥ 35 
+        S->>S: salario(12000) ≥ 8000 
         S->>S: estado = "Aprobada"
         S->>S: diasVacaciones = 20 − 5 = 15
         S->>S: historial = "Vacaciones aprobadas"
@@ -171,12 +171,12 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    subgraph EMPLEADO ["👨‍💼 MENÚ EMPLEADO"]
+    subgraph EMPLEADO [" MENÚ EMPLEADO"]
         E1[Empleado 1 - ID: 1111] --> E2[Solicita 5 días de vacaciones]
         E2 --> E3[Estado: Pendiente]
     end
 
-    subgraph RRHH ["🏢 MENÚ RRHH"]
+    subgraph RRHH [" MENÚ RRHH"]
         R1[RRHH revisa solicitud] --> R2{Evalúa política}
         R2 -->|Aprueba| R3[Estado: Aprobada]
         R2 -->|Rechaza| R4[Estado: Rechazada]
@@ -242,8 +242,8 @@ FinSi
 
 | # | Criterio | Expresión | Ejemplo pasa | Ejemplo no pasa |
 |---|---|---|---|---|
-| 1 | Antigüedad | `antigüedad ≥ 1` | Empleado 1 (3 años) ✅ | Nuevo empleado (0 años) ❌ |
-| 2 | Horas | `horas ≥ 35` | Empleado 1 (40 hrs) ✅ | Empleado a tiempo parcial (30 hrs) ❌ |
-| 3 | Salario | `salario ≥ 8000` | Empleado 1 (12000) ✅ | Empleado入门 (7000) ❌ |
+| 1 | Antigüedad | `antigüedad ≥ 1` | Empleado 1 (3 años)  | Nuevo empleado (0 años)  |
+| 2 | Horas | `horas ≥ 35` | Empleado 1 (40 hrs)  | Empleado a tiempo parcial (30 hrs)  |
+| 3 | Salario | `salario ≥ 8000` | Empleado 1 (12000)  | Empleado nuevo (7000)  |
 
 > **Nota:** Los tres criterios deben cumplirse simultáneamente. Si alguno falla, la solicitud es rechazada.
