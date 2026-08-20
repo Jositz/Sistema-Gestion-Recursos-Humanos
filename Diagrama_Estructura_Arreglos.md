@@ -6,7 +6,7 @@
 
 ```mermaid
 flowchart TB
-    subgraph VARS ["🔑 VARIABLES DE CONTROL"]
+    subgraph VARS [" VARIABLES DE CONTROL"]
         CANT["cantidad = 6"]
         POS["pos = índice del empleado"]
         I["i = índice auxiliar"]
@@ -16,7 +16,7 @@ flowchart TB
         ENCONTRADO["encontrado = Verdadero/Falso"]
     end
 
-    subgraph ARRAYS ["📋 9 ARREGLOS PARALELOS (tamaño 100)"]
+    subgraph ARRAYS [" 9 ARREGLOS PARALELOS (tamaño 100)"]
         direction TB
         A1["ids[1..100] — Entero"]
         A2["nombres[1..100] — Caracter"]
@@ -103,7 +103,7 @@ flowchart TB
         H9["Historial"]
     end
 
-    subgraph F1 ["📍 pos = 1"]
+    subgraph F1 [" pos = 1"]
         direction LR
         F1_1["1"]
         F1_2["1111"]
@@ -116,7 +116,7 @@ flowchart TB
         F1_9["Sin historial"]
     end
 
-    subgraph F2 ["📍 pos = 2"]
+    subgraph F2 [" pos = 2"]
         direction LR
         F2_1["2"]
         F2_2["2222"]
@@ -129,7 +129,7 @@ flowchart TB
         F2_9["Sin historial"]
     end
 
-    subgraph F3 ["📍 pos = 3"]
+    subgraph F3 [" pos = 3"]
         direction LR
         F3_1["3"]
         F3_2["3333"]
@@ -142,7 +142,7 @@ flowchart TB
         F3_9["Sin historial"]
     end
 
-    subgraph F4 ["📍 pos = 4"]
+    subgraph F4 [" pos = 4"]
         direction LR
         F4_1["4"]
         F4_2["4444"]
@@ -155,7 +155,7 @@ flowchart TB
         F4_9["Sin historial"]
     end
 
-    subgraph F5 ["📍 pos = 5"]
+    subgraph F5 [" pos = 5"]
         direction LR
         F5_1["5"]
         F5_2["5555"]
@@ -168,7 +168,7 @@ flowchart TB
         F5_9["Sin historial"]
     end
 
-    subgraph F6 ["📍 pos = 6"]
+    subgraph F6 [" pos = 6"]
         direction LR
         F6_1["6"]
         F6_2["6666"]
@@ -181,7 +181,7 @@ flowchart TB
         F6_9["Sin historial"]
     end
 
-    subgraph LIBRE ["📍 pos = 7..100"]
+    subgraph LIBRE [" pos = 7..100"]
         LIBRE_TXT["VACÍO — disponible para nuevos empleados"]
     end
 
@@ -255,19 +255,19 @@ Ahora se puede acceder:
 
 ```mermaid
 flowchart TD
-    subgraph INIT ["🚀 INICIO"]
+    subgraph INIT [" INICIO"]
         I1["cantidad = 6"]
         I2["Se usan posiciones [1] a [6]"]
     end
 
-    subgraph ADD ["➕ AGREGAR EMPLEADO"]
+    subgraph ADD [" AGREGAR EMPLEADO"]
         A1["cantidad = cantidad + 1"]
         A2["Nuevo empleado en posición [cantidad]"]
         A3["Ejemplo: cantidad = 7"]
         A4["Empleado en posición [7]"]
     end
 
-    subgraph DEL ["➖ ELIMINAR EMPLEADO"]
+    subgraph DEL [" ELIMINAR EMPLEADO"]
         D1["Buscar posición del empleado"]
         D2["Desplazar datos hacia atrás"]
         D3["cantidad = cantidad - 1"]
@@ -326,7 +326,7 @@ flowchart LR
     subgraph ANTES ["ANTES (cantidad = 6)"]
         direction TB
         A1["[1] Empleado 1"]
-        A2["[2] Empleado 2 ❌"]
+        A2["[2] Empleado 2 "]
         A3["[3] Empleado 3"]
         A4["[4] RRHH 1"]
         A5["[5] RRHH 2"]
@@ -345,10 +345,10 @@ flowchart LR
     subgraph DESPUES ["DESPUÉS (cantidad = 5)"]
         direction TB
         D1["[1] Empleado 1"]
-        D2["[2] Empleado 3 ✅"]
-        D3["[3] RRHH 1 ✅"]
-        D4["[4] RRHH 2 ✅"]
-        D5["[5] Administrador ✅"]
+        D2["[2] Empleado 3 "]
+        D3["[3] RRHH 1 "]
+        D4["[4] RRHH 2 "]
+        D5["[5] Administrador "]
         DV["[6] VACÍO"]
     end
 
@@ -428,7 +428,7 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-    subgraph SISTEMA ["💻 SISTEMA DE GESTIÓN RRHH"]
+    subgraph SISTEMA [" SISTEMA DE GESTIÓN RRHH"]
         direction TB
 
         subgraph CTRL ["Variables de control"]
