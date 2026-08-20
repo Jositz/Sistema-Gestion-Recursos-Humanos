@@ -80,8 +80,8 @@ Muestra los días de vacaciones disponibles y pide al empleado cuántos días de
 
 | Condición | Resultado |
 |---|---|
-| `días solicitados > 0` **Y** `días solicitados ≤ días disponibles` | ✅ Solicitud aceptada → Estado = `"Pendiente"` |
-| Cualquier otro valor | ❌ "Cantidad de días no valida" |
+| `días solicitados > 0` **Y** `días solicitados ≤ días disponibles` |  Solicitud aceptada → Estado = `"Pendiente"` |
+| Cualquier otro valor |  "Cantidad de días no valida" |
 
 **Ejemplo 1 — Solicitud válida:**
 
@@ -362,9 +362,9 @@ Historial: Vacaciones rechazadas por politica
 
 | Criterio | Valor del empleado 3 | Requisito | ¿Cumple? |
 |---|---|---|---|
-| Antigüedad | 1 año | ≥ 1 | ✅ |
-| Horas | 35 | ≥ 35 | ✅ |
-| Salario | L. 9,000 | ≥ L. 8,000 | ✅ |
+| Antigüedad | 1 año | ≥ 1 |  |
+| Horas | 35 | ≥ 35 |  |
+| Salario | L. 9,000 | ≥ L. 8,000 |  |
 
 > En este caso sí cumple. El rechazo ocurriría si, por ejemplo, el salario fuera menor a L. 8,000 o las horas menores a 35.
 
@@ -483,6 +483,6 @@ MENU EMPLEADO
 
 > **Nota:** El estado no puede regresar a `"Sin solicitud"` sin que RRHH modifique los datos del empleado (opción 2 de menú RRHH).
 
-> 📊 Para ver el diagrama de flujo completo en Mermaid, consulta [Diagrama_Aprobacion_Vacaciones.md](Diagrama_Aprobacion_Vacaciones.md).
-> 📊 Para ver el diagrama general del sistema, consulta [Diagrama_Flujo_Sistema.md](Diagrama_Flujo_Sistema.md).
-> 📊 Para ver la estructura de arreglos, consulta [Diagrama_Estructura_Arreglos.md](Diagrama_Estructura_Arreglos.md).
+>  Para ver el diagrama de flujo completo en Mermaid, consulta [Diagrama_Aprobacion_Vacaciones.md](Diagrama_Aprobacion_Vacaciones.md).
+>  Para ver el diagrama general del sistema, consulta [Diagrama_Flujo_Sistema.md](Diagrama_Flujo_Sistema.md).
+>  Para ver la estructura de arreglos, consulta [Diagrama_Estructura_Arreglos.md](Diagrama_Estructura_Arreglos.md).
